@@ -1,11 +1,11 @@
 const config = {
   type: "app",
-  name: "hisptz-scorecard",
-  title: "Interactive Scorecard",
+  name: "hisptz-league-table",
+  title: "Interactive League Table",
   entryPoints: {
     app: "./src/App",
   },
-  dataStoreNamespace: "hisptz-scorecard",
+  dataStoreNamespace: "hisptz-league-table",
 };
 
 module.exports = config;

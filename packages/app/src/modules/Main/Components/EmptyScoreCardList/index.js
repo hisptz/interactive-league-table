@@ -32,7 +32,7 @@ export default function EmptyScoreCardList() {
                             style={{position: "relative"}}
                             data-test="welcome-scorcard-title"
                         >
-                            {i18n.t("Welcome to Scorecard App!")}
+                            {i18n.t("Welcome to Interactive League Table App!")}
                         </h1>
                         <p
                             style={{
@@ -41,7 +41,7 @@ export default function EmptyScoreCardList() {
                                 position: "relative",
                             }}
                         >
-                            {i18n.t("Create a scorecard instantly, over tea break")}...
+                            {i18n.t("Create an interactive league table instantly, over tea break")}...
                         </p>
                     </div>
                     <div className="pt-16">
@@ -50,7 +50,7 @@ export default function EmptyScoreCardList() {
                             dataTest={"new-scorecard-button"}
                             primary
                         >
-                            {i18n.t("New Scorecard")}
+                            {i18n.t("New League Table")}
                         </Button>
                     </div>
                 </div>

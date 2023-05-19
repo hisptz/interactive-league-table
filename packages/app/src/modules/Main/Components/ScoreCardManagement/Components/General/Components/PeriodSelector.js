@@ -10,6 +10,10 @@ export default function PeriodSelector() {
 
     const defaultYear = useMemo(() => {
         const period = head(getValues('periodSelection.periods'));
+
+        if (!period) {
+            return new Date().getFullYear();
+        }
         const periodObject = PeriodUtility.getPeriodById(period?.id);
         return periodObject.start.year;
     }, [getValues]);

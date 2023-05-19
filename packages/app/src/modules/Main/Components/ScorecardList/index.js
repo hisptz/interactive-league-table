@@ -153,7 +153,7 @@ export default function ScorecardList() {
                                     primary
                                     icon={<AddIcon/>}
                                 >
-                                    {i18n.t("Add New Scorecard")}
+                                    {i18n.t("Add New League Table")}
                                 </Button>
                             </ButtonStrip>
                         </div>
@@ -169,7 +169,7 @@ export default function ScorecardList() {
                             listComponent={
                                 scorecardViewType === "grid"
                                     ? GridScorecardDisplay
-                                    : ListScorecardDisplay
+                                        : ListScorecardDisplay
                             }
                         />
                     )}
