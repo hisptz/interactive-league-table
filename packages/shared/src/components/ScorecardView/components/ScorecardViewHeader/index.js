@@ -111,7 +111,7 @@ export default function ScorecardViewHeader() {
                     <div className="column align-items-end">
                         <ButtonStrip className="pb-8">
                             <Button className="home-button" onClick={onHome}>
-                                {i18n.t("Back to all scorecards")}
+                                {i18n.t("Back to all League Tables")}
                             </Button>
                             <Button onClick={() => setHelpEnabled(true)}>
                                 {i18n.t("Help")}
