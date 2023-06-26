@@ -9,7 +9,6 @@ import {atom, selector} from "recoil";
 import AccessScorecardForm from "../Components/Access";
 import DataConfigurationScorecardForm from "../Components/DataConfiguration";
 import GeneralScorecardForm from "../Components/General";
-import HighlightedIndicatorsScorecardForm from "../Components/HighlightedIndicators";
 import OptionsScorecardForm from "../Components/Options";
 
 export const steps = [
@@ -28,13 +27,7 @@ export const steps = [
         tooltip: scorecardManagementTooltips[1]['content'],
         id: "dataConfiguration"
     },
-    {
-        label: i18n.t("Highlighted Indicators"),
-        component: HighlightedIndicatorsScorecardForm,
-        helpSteps: [],
-        tooltip: scorecardManagementTooltips[2]['content'],
-        id: "highlightedIndicators"
-    },
+ 
     {
         label: i18n.t("Access"),
         component: AccessScorecardForm,

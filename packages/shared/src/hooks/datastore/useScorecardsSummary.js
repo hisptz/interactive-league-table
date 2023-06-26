@@ -14,6 +14,7 @@ const updateMutation = {
     data: ({data}) => data,
 };
 
+
 export default function useScorecardsSummary() {
     const [executionError, setExecutionError] = useState();
     const [summary, setSummary] = useRecoilState(ScorecardSummaryState);
