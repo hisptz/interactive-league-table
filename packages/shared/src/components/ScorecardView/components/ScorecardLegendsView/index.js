@@ -24,22 +24,32 @@ export default function ScorecardLegendsView() {
             <div>
                 <h3>{i18n.t("Legends")}</h3>
             </div>
-            <div style={{ minWidth: 400 }} className="row align-items-center">
-                <div className="pr-16">
-                    <svg height={14} width={14}>
-                        <IncreasingArrows fontSize={14} y={0} x={7} />
-                    </svg>
-                    &nbsp; {i18n.t("Increased from last period")}
+            <div className="row d-flex">
+                <div style={{ minWidth: 400 }} className="row align-items-center">
+                    <div className="pr-16">
+                        <svg height={14} width={14}>
+                            <IncreasingArrows fontSize={14} y={0} x={7} />
+                        </svg>
+                        &nbsp; {i18n.t("Increased from last period")}
+                    </div>
+                    <div>
+                        <svg height={14} width={14}>
+                            <DecreasingArrows fontSize={14} y={14} x={7} />
+                        </svg>
+                        &nbsp; {i18n.t("Decreased from last period")}
+                    </div>
                 </div>
-                <div>
-                    <svg height={14} width={14}>
-                        <DecreasingArrows fontSize={14} y={14} x={7} />
-                    </svg>
-                    &nbsp; {i18n.t("Decreased from last period")}
+                <div className="row align-items-center">
+                    <div className="pr-16">
+                        <TrophyComponent color="#FFD700" prize={1} />
+                    </div>
+                    <div className="pr-16">
+                        <TrophyComponent color="#C0C0C0" prize={2} />
+                    </div>
+                    <div className="pr-16">
+                        <TrophyComponent color="#CD7F32" prize={3} />
+                    </div>
                 </div>
-            </div>
-            <div>
-                <TrophyComponent />
             </div>
             <div className={classes["legend-container"]}>
                 <div className={classes["legends"]}>
