@@ -1,16 +1,17 @@
 import i18n from "@dhis2/d2-i18n";
-import {Button} from "@dhis2/ui";
-import {isEmpty} from "lodash";
-import React, {useState} from "react";
-import {useRecoilValue} from "recoil";
+import { Button } from "@dhis2/ui";
+import { isEmpty } from "lodash";
+import React, { useState } from "react";
+import { useRecoilValue } from "recoil";
 import SpecificTargetsLibraryModal from "../SpecificTargetsLibrary";
 import LegendView from "./Components/LegendView";
 import classes from "./ScorecardLegendsView.module.css";
-import {DecreasingArrows, IncreasingArrows} from "../../../ScorecardCell/Components/Arrows";
-import {IsSpecificTargetsSet, ScorecardConfigDirtyState, ScorecardViewState} from "../../../../state";
+import { DecreasingArrows, IncreasingArrows } from "../../../ScorecardCell/Components/Arrows";
+import { IsSpecificTargetsSet, ScorecardConfigDirtyState, ScorecardViewState } from "../../../../state";
+import TrophyComponent from "./Components/TrophyComponent/TrophyComponent";
 
 export default function ScorecardLegendsView() {
-    const {legend: showLegends, arrows: showArrows} = useRecoilValue(ScorecardViewState("options"));
+    const { legend: showLegends, arrows: showArrows } = useRecoilValue(ScorecardViewState("options"));
     const legends = useRecoilValue(
         ScorecardConfigDirtyState("legendDefinitions")
     );
@@ -23,33 +24,51 @@ export default function ScorecardLegendsView() {
             <div>
                 <h3>{i18n.t("Legends")}</h3>
             </div>
+            <div style={{ minWidth: 400 }} className="row align-items-center">
+                <div className="pr-16">
+                    <svg height={14} width={14}>
+                        <IncreasingArrows fontSize={14} y={0} x={7} />
+                    </svg>
+                    &nbsp; {i18n.t("Increased from last period")}
+                </div>
+                <div>
+                    <svg height={14} width={14}>
+                        <DecreasingArrows fontSize={14} y={14} x={7} />
+                    </svg>
+                    &nbsp; {i18n.t("Decreased from last period")}
+                </div>
+            </div>
+            <div>
+                <TrophyComponent />
+            </div>
             <div className={classes["legend-container"]}>
                 <div className={classes["legends"]}>
                     <div className="row align-items-center">
+
                         {legends?.map((legend) => (
-                            <LegendView key={legend.color} legend={legend}/>
+                            <LegendView key={legend.color} legend={legend} />
                         ))}
                     </div>
                 </div>
                 <div className={classes["other"]}>
                     <div className="row gap-16 space-between justify-content-end">
                         {
-                            showArrows && <div style={{minWidth: 400}} className="row align-items-center end">
+                            showArrows && <div style={{ minWidth: 400 }} className="row align-items-center end">
                                 <div className="pr-16">
                                     <svg height={14} width={14}>
-                                        <IncreasingArrows fontSize={14} y={0} x={7}/>
+                                        <IncreasingArrows fontSize={14} y={0} x={7} />
                                     </svg>
                                     &nbsp; {i18n.t("Increased from last period")}
                                 </div>
                                 <div>
                                     <svg height={14} width={14}>
-                                        <DecreasingArrows fontSize={14} y={14} x={7}/>
+                                        <DecreasingArrows fontSize={14} y={14} x={7} />
                                     </svg>
                                     &nbsp; {i18n.t("Decreased from last period")}
                                 </div>
                             </div>
                         }
-                        <div className="print-hide" style={{minWidth: 200}}>
+                        <div className="print-hide" style={{ minWidth: 200 }}>
                             {
                                 isSpecificTargetsSet && <Button onClick={() => setSpecificTargetsLibraryOpen(true)}>
                                     {i18n.t("Specific Targets Library")}
@@ -62,7 +81,7 @@ export default function ScorecardLegendsView() {
                 {
                     specificTargetsLibraryOpen &&
                     <SpecificTargetsLibraryModal onClose={() => setSpecificTargetsLibraryOpen(false)}
-                                                 open={specificTargetsLibraryOpen}/>
+                        open={specificTargetsLibraryOpen} />
                 }
             </div>
         </div>

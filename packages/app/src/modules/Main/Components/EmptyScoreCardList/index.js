@@ -41,13 +41,13 @@ export default function EmptyScoreCardList() {
                                 position: "relative",
                             }}
                         >
-                            {i18n.t("Create an interactive league table instantly, over tea break")}...
+                            {i18n.t("Create an interactive league table instantly, over tea breaksssss!")}...
                         </p>
                     </div>
                     <div className="pt-16">
                         <Button
                             onClick={onNewScorecardClick}
-                            dataTest={"new-scorecard-button"}
+                            dataTest={"new-leaguetable-button"}
                             primary
                         >
                             {i18n.t("New League Table")}
