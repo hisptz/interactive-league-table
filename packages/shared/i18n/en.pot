@@ -745,8 +745,8 @@ msgstr "Search Data"
 msgid "Drag to row headers to change layout "
 msgstr "Drag to row headers to change layout "
 
-msgid "Back to all scorecards"
-msgstr "Back to all scorecards"
+msgid "Back to all League Tables"
+msgstr "Back to all League Tables"
 
 msgid "Help"
 msgstr "Help"
