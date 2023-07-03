@@ -28,6 +28,7 @@ export const steps = [
         tooltip: scorecardManagementTooltips[1]['content'],
         id: "dataConfiguration"
     },
+
     {
         label: i18n.t("Access"),
         component: AccessScorecardForm,
