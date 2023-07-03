@@ -29,7 +29,7 @@ export const steps = [
         id: "dataConfiguration"
     },
 
-    {
+{
         label: i18n.t("Access"),
         component: AccessScorecardForm,
         helpSteps: [],
@@ -37,6 +37,7 @@ export const steps = [
         id: "access"
     },
  
+
      {
         label: i18n.t("Options"),
         component: OptionsScorecardForm,
