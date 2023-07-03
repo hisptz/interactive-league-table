@@ -10,6 +10,7 @@ import { DecreasingArrows, IncreasingArrows } from "../../../ScorecardCell/Compo
 import { IsSpecificTargetsSet, ScorecardConfigDirtyState, ScorecardViewState } from "../../../../state";
 import TrophyComponent from "./Components/TrophyComponent/TrophyComponent";
 
+
 export default function ScorecardLegendsView() {
     const { legend: showLegends, arrows: showArrows } = useRecoilValue(ScorecardViewState("options"));
     const legends = useRecoilValue(

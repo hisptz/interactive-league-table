@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-06-29T11:43:53.683Z\n"
-"PO-Revision-Date: 2023-06-29T11:43:53.683Z\n"
+"POT-Creation-Date: 2023-06-29T16:47:49.939Z\n"
+"PO-Revision-Date: 2023-06-29T16:47:49.939Z\n"
 
 msgid "Are you sure you want to delete this entity?"
 msgstr "Are you sure you want to delete this entity?"
@@ -733,6 +733,9 @@ msgstr "Last 4 Quarters"
 msgid "Last 5 Years"
 msgstr "Last 5 Years"
 
+msgid "Rank"
+msgstr "Rank"
+
 msgid "Drag to row headers to change layout"
 msgstr "Drag to row headers to change layout"
 
@@ -745,8 +748,8 @@ msgstr "Search Data"
 msgid "Drag to row headers to change layout "
 msgstr "Drag to row headers to change layout "
 
-msgid "Back to all scorecards"
-msgstr "Back to all scorecards"
+msgid "Back to all League Tables"
+msgstr "Back to all League Tables"
 
 msgid "Help"
 msgstr "Help"

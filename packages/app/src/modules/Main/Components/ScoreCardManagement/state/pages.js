@@ -28,13 +28,14 @@ export const steps = [
         tooltip: scorecardManagementTooltips[1]['content'],
         id: "dataConfiguration"
     },
-    {
-        label: i18n.t("Highlighted Indicators"),
-        component: HighlightedIndicatorsScorecardForm,
-        helpSteps: [],
-        tooltip: scorecardManagementTooltips[2]['content'],
-        id: "highlightedIndicators"
-    },
+    //
+    //{
+      //  label: i18n.t("Highlighted Indicators"),
+        //component: HighlightedIndicatorsScorecardForm,
+        //helpSteps: [],
+       // tooltip: scorecardManagementTooltips[2]['content'],
+       // id: "highlightedIndicators"
+   // },
     {
         label: i18n.t("Access"),
         component: AccessScorecardForm,
