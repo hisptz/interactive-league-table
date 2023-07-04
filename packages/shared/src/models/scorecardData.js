@@ -36,6 +36,7 @@ export default class ScorecardDataEngine {
     dataEntities$ = this._dataEntities$.asObservable();
     _previousPeriods = [];
     _calendar
+    _orgUnitOdds = [];
 
     constructor() {
         this._cancelled = false;
@@ -346,6 +347,27 @@ export default class ScorecardDataEngine {
         );
     }
 
+    calculateOrgUnitsOdds() {
+        //Listen to observable `this.dataEntities$`, get data and calculate odds. Assign odds for each orgUnit to a variable
+        /* Filter out the parent orgUnit
+
+        Figure out odds for each data item by checking it in the dataGroup variable
+        RxJS
+        * example:
+        * [{id: "", value: (1-10)}].sort
+        * */
+
+        this._orUnitOdds = [].sort().reverse();
+
+
+    }
+
+    getOrgUnitRank(id) {
+        //id: orgUnit id
+        // Find the index of orgUnit in the array of orgUnits whose id is specified, return index + 1
+        return 1; //Index + 1
+    }
+
     getDataSourceAverage(dataSources = []) {
         return this.dataEntities$.pipe(
             map((dataEntities) => {
@@ -378,6 +400,7 @@ export default class ScorecardDataEngine {
             })
         );
     }
+
 
     getOrgUnitColumnAverage({period, orgUnit}) {
         return this.dataEntities$.pipe(
