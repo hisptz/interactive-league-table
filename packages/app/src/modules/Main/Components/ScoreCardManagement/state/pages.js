@@ -28,7 +28,6 @@ export const steps = [
         tooltip: scorecardManagementTooltips[1]['content'],
         id: "dataConfiguration"
     },
-
     {
         label: i18n.t("Access"),
         component: AccessScorecardForm,
@@ -36,8 +35,6 @@ export const steps = [
         tooltip: scorecardManagementTooltips[3]['content'],
         id: "access"
     },
-
-
     {
         label: i18n.t("Options"),
         component: OptionsScorecardForm,
@@ -45,6 +42,7 @@ export const steps = [
         tooltip: scorecardManagementTooltips[4]['content'],
         id: "options"
     },
+    //label
 ];
 export const ActiveStepState = atom({
     key: "activeStepState",
