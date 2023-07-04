@@ -4,12 +4,11 @@ import {
     GENERAL_HELP_STEPS,
     scorecardManagementTooltips
 } from "@scorecard/shared";
-import { findIndex } from "lodash";
-import { atom, selector } from "recoil";
+import {findIndex} from "lodash";
+import {atom, selector} from "recoil";
 import AccessScorecardForm from "../Components/Access";
 import DataConfigurationScorecardForm from "../Components/DataConfiguration";
 import GeneralScorecardForm from "../Components/General";
-import HighlightedIndicatorsScorecardForm from "../Components/HighlightedIndicators";
 import OptionsScorecardForm from "../Components/Options";
 
 export const steps = [
@@ -28,6 +27,7 @@ export const steps = [
         tooltip: scorecardManagementTooltips[1]['content'],
         id: "dataConfiguration"
     },
+ 
     {
         label: i18n.t("Access"),
         component: AccessScorecardForm,
@@ -42,7 +42,6 @@ export const steps = [
         tooltip: scorecardManagementTooltips[4]['content'],
         id: "options"
     },
-    //label
 ];
 export const ActiveStepState = atom({
     key: "activeStepState",
@@ -50,7 +49,7 @@ export const ActiveStepState = atom({
 });
 export const ActiveStepIndexState = selector({
     key: "activeStepIndexState",
-    get: ({ get }) => {
+    get: ({get}) => {
         const activeStep = get(ActiveStepState);
         return findIndex(steps, step => step.id === activeStep.id);
     }
