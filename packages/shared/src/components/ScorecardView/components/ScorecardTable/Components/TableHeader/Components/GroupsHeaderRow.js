@@ -39,7 +39,8 @@ export default function GroupsHeaderRow({nested, orgUnits}) {
                     {title}
                 </DataTableCell>
             ))}
-            {averageColumn && (
+            
+ { averageColumn && (
                 <DataTableCell
                     width={`${ScorecardTableConstants.CELL_WIDTH}px`}
                     fixed
@@ -50,7 +51,19 @@ export default function GroupsHeaderRow({nested, orgUnits}) {
                 >
                     {i18n.t("Average")}
                 </DataTableCell>
-            )}
+           ) }
+            {
+                <DataTableCell
+                    width={`${ScorecardTableConstants.CELL_WIDTH}px`}
+                    fixed
+                    align="center"
+                    bordered
+                    className="scorecard-table-header header"
+                    rowSpan={"3"}
+                >
+                    {i18n.t("Rank")}
+                </DataTableCell>
+            }
         </DataTableRow>
     );
 }

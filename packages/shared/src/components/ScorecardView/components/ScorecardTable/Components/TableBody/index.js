@@ -47,6 +47,8 @@ export default function ScorecardTableBody({orgUnits, dataEngine, nested}) {
     const refreshScorecard = useRecoilValue(RefreshScorecardState);
     const resetRefreshScorecard = useResetRecoilState(RefreshScorecardState);
     const [overallAverage, setOverallAverage] = useState();
+    
+
 
 
     useEffect(() => {

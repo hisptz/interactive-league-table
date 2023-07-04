@@ -41,6 +41,11 @@ export default function DataSourceConfigurationForm({path}) {
                     label={i18n.t("Weight")}
                     name={`${path}.weight`}
                 />
+                <RHFDHIS2FormField
+                    valueType={DHIS2ValueTypes.NUMBER.name}
+                    label={i18n.t("Odds")}
+                    name={`${path}.odds`}
+                    />
                 <div className="row space-between">
                     <div className="column pr-16 effective-gap-settings">
                         <RHFDHIS2FormField
