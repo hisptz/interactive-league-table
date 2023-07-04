@@ -130,6 +130,18 @@ export default function OrgUnitHeaderRow({orgUnits, nested}) {
                     {i18n.t("Average")}
                 </DataTableCell>
             )}
+             {
+                <DataTableCell
+                    width={`${ScorecardTableConstants.CELL_WIDTH}px`}
+                    fixed
+                    align="center"
+                    bordered
+                    className={classes['data-header-cell']}
+                    rowSpan={"2"}
+                >
+                    {i18n.t("Rank")}
+                </DataTableCell>
+            }
         </DataTableRow>
     );
 }
