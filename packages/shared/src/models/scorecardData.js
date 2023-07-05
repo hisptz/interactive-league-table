@@ -347,7 +347,7 @@ export default class ScorecardDataEngine {
         );
     }
 
-    calculateOrgUnitsOdds() {
+    calculateOrgUnitsOdds(id){
         //Listen to observable `this.dataEntities$`, get data and calculate odds. Assign odds for each orgUnit to a variable
         /* Filter out the parent orgUnit
 
@@ -356,8 +356,11 @@ export default class ScorecardDataEngine {
         * example:
         * [{id: "", value: (1-10)}].sort
         * */
-
+         
+           // const orgRank = (value / weight )* odd;
+            
         this._orUnitOdds = [].sort().reverse();
+        return data;
 
 
     }
@@ -365,7 +368,34 @@ export default class ScorecardDataEngine {
     getOrgUnitRank(id) {
         //id: orgUnit id
         // Find the index of orgUnit in the array of orgUnits whose id is specified, return index + 1
-        return 1; //Index + 1
+         //Index + 1
+         return this.dataEntities$.pipe(
+            map((dataEntities) => {
+                const data = {};
+               for (const dataSource of dataSources) {
+               const dataSourcesData = pickBy(dataEntities, (_, key) => (
+        dataSource === key.split("_")[0] &&
+        !this.previousPeriods.includes(key.split("")[2]) &&
+        !!find(this.selectedPeriods, (period) => period.id === key.split("")[2]) &&
+        this.selectedOrgUnits.map((orgUnit) => orgUnit.id).includes(key.split("")[1])
+      ));
+      const noOfDataSources = Object.keys(dataSourcesData).length;
+      if (compact(Object.values(dataSourcesData).map(({current}) => current))?.length === 0) {
+        data[dataSource] = undefined;
+      } else {
+        data[dataSource] = reduce(
+          dataSourcesData,
+          (result, value) => {
+            return (result ?? 0) + value.current / noOfDataSources * value.odd;
+          },
+                            0
+                        );
+                    }
+                }
+
+                return data;
+            })
+        );
     }
 
     getDataSourceAverage(dataSources = []) {

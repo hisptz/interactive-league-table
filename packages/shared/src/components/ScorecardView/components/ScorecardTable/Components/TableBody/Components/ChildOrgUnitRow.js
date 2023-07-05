@@ -13,7 +13,7 @@ import OrgUnitContainer from "./OrgUnitContainer";
 import {PeriodResolverState, ScorecardDataLoadingState, ScorecardViewState} from "../../../../../../../state";
 import {AverageDisplayType, DraggableItems} from "../../../../../../../constants";
 import {ScorecardDataEngine} from "../../../../../../../models";
-
+import RankCell from "./RankCell";
 
 export default function ChildOrgUnitRow({
                                             orgUnit,
@@ -29,11 +29,15 @@ export default function ChildOrgUnitRow({
 
     const [isEmpty, setIsEmpty] = useState(false);
     const [average, setAverage] = useState();
+  //const [orgRank, setOrgRank] = useState();
     const {id} = orgUnit ?? {};
     const {dataGroups} =
     useRecoilValue(ScorecardViewState("dataSelection")) ?? {};
     const loading = useRecoilValue(ScorecardDataLoadingState(orgUnits));
     const periods = useRecoilValue(PeriodResolverState) ?? [];
+
+
+    const myDataEngine = new ScorecardDataEngine();
 
     function subscribe() {
         if (loading !== undefined && !loading) {
@@ -42,6 +46,18 @@ export default function ChildOrgUnitRow({
 
             return () => {
                 rowAverage.unsubscribe();
+                rowStatusSub.unsubscribe();
+            };
+        }
+    }
+
+    function orgRank() {
+        if (loading !== undefined && !loading) {
+            const rowOrgRank = myDataEngine.getOrgUnitRank(id);
+            const rowStatusSub = dataEngine.isRowEmpty(id).subscribe(setIsEmpty);
+
+            return () => {
+                rowOrgRank.unsubscribe();
                 rowStatusSub.unsubscribe();
             };
         }
@@ -111,6 +127,11 @@ export default function ChildOrgUnitRow({
                 )
             )}
             {averageColumn && <AverageCell bold value={average}/>}
+            {<RankCell value={orgRank}/>
+            
+            
+            
+            }
         </DataTableRow>
     );
 
